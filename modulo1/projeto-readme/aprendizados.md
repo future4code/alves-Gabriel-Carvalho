@@ -1,0 +1,3 @@
+# Primeira Semana
+
+Na segunda feira, tivemos a aula inaugural e aprendemos como utilizar o Slack e o Zoom, além disso, tivemos uma palestra sobre convevivência e **diversidade**, no fim, fizemos uma dinâmica de grupo. Na terça, aprendemos sobre contratos, algumas técnicas para programar e como tirar dúvidas. Na quarta aprendemos sobre o terminal, na quinta sobre Git e na sexta tivemos uma palestra sobre rotina e a pedagogia do curso.
