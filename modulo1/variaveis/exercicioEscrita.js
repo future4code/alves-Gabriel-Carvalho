@@ -43,3 +43,17 @@ b = x;
 console.log("O novo valor de a é", a);
 console.log("O novo valor de b é", b);
 */
+
+// Desafio
+
+let num1 = Number(prompt("Digite o primeiro número"));
+let num2 = Number(prompt("Digite o segundo número"));
+
+soma = num1 + num2;
+produto = num1 * num2;
+
+console.log("O primeiro número somado ao segundo número resulta em:", soma);
+console.log(
+  "O primeiro número multiplicado pelo segundo número resulta em:",
+  produto
+);
