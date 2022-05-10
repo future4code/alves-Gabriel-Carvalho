@@ -121,3 +121,23 @@ console.log(lbA + "lb equivalem a " + kgA + "kg");
 let ozB = 10.5;
 let kgB = ozB / 35.274;
 console.log(ozB + "oz equivalem a " + kgB + "kg");
+
+let miC = 100;
+let mC = miC * 1609.34;
+console.log(miC + "mi equivalem a " + mC + "m");
+
+let ftD = 50;
+let mD = ftD * 0.3048;
+console.log(ftD + "ft equivalem a " + mD + "m");
+
+let galE = 103.56;
+let lE = galE * 3785;
+console.log(galE + "gal equivalem a " + lE + "L");
+
+let xicF = 450;
+let lF = xicF / 6;
+console.log(xicF + "xic equivalem a " + lF + "L");
+
+let lbG = Number(prompt("Entre com o peso em libras"));
+let kgG = lbG / 2.2046;
+console.log(lbG + "lb equivalem a " + kgG + "kg");
