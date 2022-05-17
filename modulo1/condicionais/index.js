@@ -85,21 +85,96 @@
 let nome = prompt("Seu nome completo");
 let tipoJogo = prompt("Tipo de jogo");
 let etapaJogo = prompt("Etapa do jogo");
-let categoria = Number(prompt("Categoria"));
+let categoriaJogo = Number(prompt("Categoria"));
 let qtd = prompt("Quantidade de ingressos");
 
-if (etapaJogo === "SF") {
-  if (categoria === 1) {
+function passarValores(etapa, categoria, tipo) {
+  if (tipo === "DO") {
+    tipo = "Nacional";
+    if (etapa === "SF") {
+      etapa = "Semi Final";
+      if (categoria == 1) {
+        valor = 1320;
+      } else if (categoria == 2) {
+        valor = 880;
+      } else if (categoria == 3) {
+        valor = 550;
+      } else if (categoria == 4) {
+        valor = 220;
+      }
+    }
+    if (etapa === "DT") {
+      etapa = "Decisão do 3º lugar";
+      if (categoria == 1) {
+        valor = 660;
+      } else if (categoria == 2) {
+        valor = 440;
+      } else if (categoria == 3) {
+        valor = 330;
+      } else if (categoria == 4) {
+        valor = 170;
+      }
+    }
+    if (etapa === "FI") {
+      etapa = "Final";
+      if (categoria == 1) {
+        valor = 1980;
+      } else if (categoria == 2) {
+        valor = 1320;
+      } else if (categoria == 3) {
+        valor = 880;
+      } else if (categoria == 4) {
+        valor = 330;
+      }
+    }
+    total = valor * qtd;
     console.log(
-      `---Dados da compra---\n Nome do cliente: ${nome}\n Tipo de jogo: Nacional\nEtapa do jogo: Semifinal\nCategoria ${categoria}\nQuandidade de Ingressos: ${qtd}\n---Valores---\nValor do ingresso: R$${1320}\n Valor total: R$${
-        1320 * qtd
-      }`
+      `---Dados da compra---\nNome do cliente: ${nome}\nTipo de jogo: ${tipo} \nEtapa do jogo: ${etapa}\nCategoria ${categoria}\nQuandidade de Ingressos: ${qtd}\n---Valores---\nValor do ingresso: R$${valor}\n Valor total: R$${total}`
+    );
+  } else if (tipo === "IN") {
+    tipo = "Internacional";
+    if (etapa === "SF") {
+      etapa = "Semi Final";
+      if (categoria == 1) {
+        valor = 1320;
+      } else if (categoria == 2) {
+        valor = 880;
+      } else if (categoria == 3) {
+        valor = 550;
+      } else if (categoria == 4) {
+        valor = 220;
+      }
+    }
+    if (etapa === "DT") {
+      etapa = "Decisão do 3º lugar";
+      if (categoria == 1) {
+        valor = 660;
+      } else if (categoria == 2) {
+        valor = 440;
+      } else if (categoria == 3) {
+        valor = 330;
+      } else if (categoria == 4) {
+        valor = 170;
+      }
+    }
+    if (etapa === "FI") {
+      etapa = "Final";
+      if (categoria == 1) {
+        valor = 1980;
+      } else if (categoria == 2) {
+        valor = 1320;
+      } else if (categoria == 3) {
+        valor = 880;
+      } else if (categoria == 4) {
+        valor = 330;
+      }
+    }
+    conv = valor / 4.7;
+    total = conv * qtd;
+    console.log(
+      `---Dados da compra---\nNome do cliente: ${nome}\nTipo de jogo: ${tipo} \nEtapa do jogo: ${etapa}\nCategoria ${categoria}\nQuandidade de Ingressos: ${qtd}\n---Valores---\nValor do ingresso: U$${conv}\n Valor total: R$${total}`
     );
   }
 }
 
-// console.log(
-//   `---Dados da compra---\n Nome do cliente: ${nome}\n Tipo de jogo:${tipoJogo}\nEtapa do jogo: ${etapaJogo}`
-// );
-
-// console.log(valorIngresso);
+passarValores(etapaJogo, categoriaJogo, tipoJogo);
