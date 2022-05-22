@@ -11,3 +11,17 @@
  * 
  */
 
+// console.log("Boas vindas ao jogo de Blackjack!");
+// if (confirm("Quer iniciar uma  nova rodada?")) {
+//   // o que fazer se o usuário clicar "ok"
+
+//   const arrayCartasUsuario = [comprarCarta(), comprarCarta()];
+//   const arrayCartaComputador = [comprarCarta(), comprarCarta()];
+//   if (
+//     confirm(
+//       `Suas cartas são ${arrayCartasUsuario[0].texto} ${arrayCartasUsuario[1].texto} A carta revelada do computador é ${arrayCartaComputador[0].texto}\nDeseja comprar mais uma carta?`
+//     )
+//   );
+// } else {
+//   alert("O jogo acabou.");
+// }
