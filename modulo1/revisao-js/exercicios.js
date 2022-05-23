@@ -20,7 +20,10 @@ function retornaArrayOrdenado(array) {
 console.log(array);
 
 // EXERCÍCIO 04
-function retornaNumerosPares(array) {}
+function retornaNumerosPares(array) {
+  return array.filter((a) => a % 2 === 0);
+}
+console.log(array);
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {}
