@@ -82,7 +82,18 @@ function retornaNPrimeirosPares(n) {
 console.log(numPares);
 
 // EXERCÍCIO 09
-function classificaTriangulo(ladoA, ladoB, ladoC) {}
+function classificaTriangulo(ladoA, ladoB, ladoC) {
+  let tipo = "";
+  if (ladoA !== ladoB && ladoA !== ladoC && ladoB !== ladoC) {
+    tipo = "Escaleno";
+  } else if (ladoA === ladoB && ladoA === ladoC && ladoB === ladoC) {
+    tipo = "Equilátero";
+  } else {
+    tipo = "Isósceles";
+  }
+  return tipo;
+}
+console.log(tipo);
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {}
