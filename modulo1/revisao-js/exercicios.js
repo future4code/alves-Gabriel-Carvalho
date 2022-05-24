@@ -27,12 +27,16 @@ console.log(array);
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
-  array.filter((a) => a % 2 === 0);
-  array.map((a) => a ** 2);
-}
-// array.map((a) => a ** 2);
+  let novoArray = [];
 
-console.log(array);
+  novoArray = array.filter((a) => a % 2 === 0);
+
+  novoArray2 = novoArray.map((a) => a ** 2);
+
+  return novoArray2;
+}
+
+console.log(novoArray2);
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
@@ -96,25 +100,93 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 console.log(tipo);
 
 // EXERCÍCIO 10
-function retornaSegundoMaiorESegundoMenor(array) {}
+newArray = [];
+function retornaSegundoMaiorESegundoMenor(array) {
+  let maior = 0;
+  let menor = 0;
+  let segMaior = 0;
+  let segMenor = 0;
+  let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > maior) {
+      maior = array[i];
+      newArray.push(maior);
+    }
+    // else if (array[i])
+    return newArray;
+  }
+}
+console.log(newArray);
+// && array[i] < segMaior
 
 // EXERCÍCIO 11
-function retornaChamadaDeFilme(filme) {}
+function retornaChamadaDeFilme(filme) {
+  return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores[0]}, ${filme.atores[1]}, ${filme.atores[2]}, ${filme.atores[3]}.`;
+}
 
 // EXERCÍCIO 12
-function retornaPessoaAnonimizada(pessoa) {}
+function retornaPessoaAnonimizada(pessoa) {
+  newObj = {
+    ...pessoa,
+    nome: "ANÔNIMO",
+  };
+  return newObj;
+}
+console.log(newObj);
 
 // EXERCÍCIO 13A
-function retornaPessoasAutorizadas(pessoas) {}
+function retornaPessoasAutorizadas(pessoas) {
+  let pessoasAutorizadas = [];
+  for (let i = 0; i < pessoas.length; i++)
+    if (
+      pessoas[i].altura >= 1.5 &&
+      pessoas[i].idade > 14 &&
+      pessoas[i].idade < 60
+    ) {
+      pessoasAutorizadas.push(pessoas[i]);
+    }
+  return pessoasAutorizadas;
+}
+console.log(pessoasAutorizadas);
 
 // EXERCÍCIO 13B
-function retornaPessoasNaoAutorizadas(pessoas) {}
+function retornaPessoasNaoAutorizadas(pessoas) {
+  let pessoasAutorizadas = [];
+  let pessoasNaoAutorizadas = [];
+  for (let i = 0; i < pessoas.length; i++)
+    if (
+      pessoas[i].altura >= 1.5 &&
+      pessoas[i].idade > 14 &&
+      pessoas[i].idade < 60
+    ) {
+      pessoasAutorizadas.push(pessoas[i]);
+    } else {
+      pessoasNaoAutorizadas.push(pessoas[i]);
+    }
+  return pessoasNaoAutorizadas;
+}
+console.log(pessoasNaoAutorizadas);
 
 // EXERCÍCIO 14
-function retornaContasComSaldoAtualizado(contas) {}
+function retornaContasComSaldoAtualizado(contas) {
+  soma = 0;
+  for (let i = 0; i < contas.length; i++) {
+    soma += contas[i].compras;
+    contas[i].saldoTotal = contas[i].saldoTotal - soma;
+    contas[i].compras = [];
+  }
+  return contas;
+}
+console.log(contas);
 
 // EXERCÍCIO 15A
-function retornaArrayOrdenadoAlfabeticamente(consultas) {}
+function retornaArrayOrdenadoAlfabeticamente(consultas) {
+  consultas.sort(function (a, b) {
+    return a.nome > b.nome ? 1 : b.nome > a.nome ? -1 : 0;
+  });
+  return consultas;
+}
+console.log(consultas);
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {}
