@@ -70,7 +70,16 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
 }
 console.log(newObj);
 // EXERCÍCIO 08
-function retornaNPrimeirosPares(n) {}
+function retornaNPrimeirosPares(n) {
+  let numPares = [];
+  for (let i = 0; numPares.length < n; i++) {
+    if (i % 2 == 0) {
+      numPares.push(i);
+    }
+  }
+  return numPares;
+}
+console.log(numPares);
 
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {}
