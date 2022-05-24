@@ -26,14 +26,49 @@ function retornaNumerosPares(array) {
 console.log(array);
 
 // EXERCÍCIO 05
-function retornaNumerosParesElevadosADois(array) {}
+function retornaNumerosParesElevadosADois(array) {
+  array.filter((a) => a % 2 === 0);
+  array.map((a) => a ** 2);
+}
+// array.map((a) => a ** 2);
+
+console.log(array);
 
 // EXERCÍCIO 06
-function retornaMaiorNumero(array) {}
+function retornaMaiorNumero(array) {
+  return Math.max(...array);
+}
+console.log(array);
 
 // EXERCÍCIO 07
-function retornaObjetoEntreDoisNumeros(num1, num2) {}
-
+function retornaObjetoEntreDoisNumeros(num1, num2) {
+  let maiorNumero = 0;
+  let menorNumero = 0;
+  let divisivel = false;
+  if (num1 > num2) {
+    maiorNumero = num1;
+  } else {
+    maiorNumero = num2;
+  }
+  if (num1 < num2) {
+    menorNumero = num1;
+  } else {
+    menorNumero = num2;
+  }
+  if (maiorNumero % menorNumero === 0) {
+    divisivel = true;
+  } else {
+    divisivel = false;
+  }
+  let diferenca = maiorNumero - menorNumero;
+  let newObj = {
+    maiorNumero: maiorNumero,
+    maiorDivisivelPorMenor: divisivel,
+    diferenca: diferenca,
+  };
+  return newObj;
+}
+console.log(newObj);
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {}
 
