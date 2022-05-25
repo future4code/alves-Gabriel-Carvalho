@@ -1,0 +1,59 @@
+.box-header {
+  background-color: purple;
+  color: white;
+}
+
+header{
+  font-size: x-large;
+  background-color: purple;
+  color: white;
+  
+}
+
+nav{
+  color: white;
+  font-size: large;
+  display: inline
+  
+}
+
+footer{
+  margin-top: 25%;
+}
+
+a{
+  background-color: purple;
+  color: white;
+
+}
+
+img{
+  width: 50px;
+  height: 50px;
+}
+
+main{
+  font-size: large;
+  margin-top: 30px;
+}
+
+.funcionarios {
+  font-size: larger;
+}
+
+h2{
+  background-color: purple;
+  color: white;
+}
+
+.rodape {
+  text-align: right;
+}
+
+.vendas {
+  font-size: large;
+}
+
+legend, button{
+  margin-top: 25px;
+}
