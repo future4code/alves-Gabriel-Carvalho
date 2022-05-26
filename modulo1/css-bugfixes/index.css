@@ -87,12 +87,16 @@ a{
     background-color: #2274a5;
     color: white;
     padding-top: 50px;
+    
 }
 
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    list-style-position: inside;
+
 }
+
 
 #container-para-comprar {
     background-color: #e7eb90;
@@ -124,6 +128,7 @@ table {
     margin: auto;
    
 }
+
 
 
 td button {
