@@ -129,6 +129,11 @@ td button {
 .container-do-search {
     margin-top: 20px;
     height: 100px;
+   
+}
+.container-do-search input {
+border:0 none;
+border-bottom: solid
 }
 
 
