@@ -1,0 +1,90 @@
+body {
+  background: url(./img/background.png);
+  color: #f04848
+}
+
+nav{
+  color: #f04848
+}
+
+.logo-header {
+  font-size: 48px;
+  font-weight: bold;
+  color: #f04848;
+  position: relative;
+  text-align: center;
+  padding-top: 16px;
+  padding-left: 16px;
+  display: inline;
+}
+
+header {
+  display: inline;
+  align-items: center;
+}
+
+.navegacao {
+  margin-left: 100px;
+}
+
+.navegacao .menu {
+  display: inline-flex;
+}
+
+.menu .item-menu a {
+  font-size: 32px;
+  font-weight: lighter;
+  color: var(--defaultTextColor);
+  margin-right: 4rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  padding: 10px 15px;
+}
+
+
+.contacts {
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.contacts .contact-item {
+  color: var(--primaryColor);
+  font-size: 2rem;
+  margin: 0 0.5rem;
+}
+
+.contacts .contact-item i {
+  transition: all 0.2s ease;
+}
+
+.contacts .contact-item i:hover {
+  border-bottom: 1px solid;
+}
+
+.link-arrow {
+  font-size: 1.1rem;
+  font-weight: lighter;
+  border: 1px solid #b1b1b1;
+  border-radius: 10px;
+  padding: 1.3rem 3.4rem;
+  width: fit-content;
+  color: var(--defaultTextColor);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.link-arrow span {
+  display: inline-block;
+}
+
+.link-arrow img {
+  position: absolute;
+  right: -3.5rem;
+  transition: all 0.2s ease;
+}
+
+.link-arrow:hover img {
+  right: -4.2rem;
+}
