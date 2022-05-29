@@ -1,6 +1,10 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 body {
   background: url(./img/background.png);
-  color: #f04848
+  /* color: #f04848 */
 }
 
 nav{
@@ -13,9 +17,10 @@ nav{
   color: #f04848;
   position: relative;
   text-align: center;
-  padding-top: 16px;
-  padding-left: 16px;
+  padding-left: 8px;
   display: inline;
+  border-style:ridge;
+  text-decoration: none;
 }
 
 header {
@@ -24,67 +29,82 @@ header {
 }
 
 .navegacao {
-  margin-left: 100px;
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .navegacao .menu {
   display: inline-flex;
+  list-style-type: none;
+  margin-left: auto;
+ 
 }
 
 .menu .item-menu a {
   font-size: 32px;
-  font-weight: lighter;
-  color: var(--defaultTextColor);
+  color: #f04848;
   margin-right: 4rem;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
   position: relative;
   padding: 10px 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.menu .item-menu a:hover {
+  font-size: 32px;
+    color: #f04848;
+    margin-right: 4rem;
+    position: relative;
+    padding: 10px 15px;
+    text-decoration: underline;
+    font-weight: bold;
+  
+
 }
 
-
-.contacts {
+.img-github {
   margin-left: auto;
-  margin-right: 2rem;
+  margin-right: auto;
+  width: 48px;
+  height: 48px;
+  display: block;
 }
 
-.contacts .contact-item {
-  color: var(--primaryColor);
-  font-size: 2rem;
-  margin: 0 0.5rem;
+h1, h2, h3{
+  color: white;
+  text-align: center;
 }
 
-.contacts .contact-item i {
-  transition: all 0.2s ease;
+.links {
+  color: #f04848;
+  text-decoration: none;
+}
+address{
+  color: #f04848;
+  text-align: center;
 }
 
-.contacts .contact-item i:hover {
-  border-bottom: 1px solid;
+.form-color {
+  color: #f04848;
+  /* background-color: #f04848; */
+  font-weight: bold;
 }
 
-.link-arrow {
-  font-size: 1.1rem;
-  font-weight: lighter;
-  border: 1px solid #b1b1b1;
-  border-radius: 10px;
-  padding: 1.3rem 3.4rem;
-  width: fit-content;
-  color: var(--defaultTextColor);
-  display: flex;
-  align-items: center;
-  position: relative;
+button:hover {
+  background-color: white;
+  color: #f04848;
+  font-weight: bold;
 }
 
-.link-arrow span {
-  display: inline-block;
+button {
+  background-color: #f04848;
+  color: white;
+  font-weight: bold;
 }
 
-.link-arrow img {
-  position: absolute;
-  right: -3.5rem;
-  transition: all 0.2s ease;
-}
-
-.link-arrow:hover img {
-  right: -4.2rem;
+form{
+  width: 400px;
+  height: 100px;
+  margin: auto;
+  display: block;
 }
