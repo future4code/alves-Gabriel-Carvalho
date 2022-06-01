@@ -8,12 +8,12 @@ header {
   align-items: center;
   justify-content: left;
   flex-direction: row;
-  padding: 16px;
+  padding: 1rem;
   background-color: rgba(255, 0, 0, 0.928);
 }
 
 header input {
-  padding: 8px;
+  padding: 0.5rem;
 }
 
 .div-busca {
@@ -23,16 +23,17 @@ header input {
 section {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
+  gap: 0.5rem;
+  padding: 0.5rem;
   justify-content: space-between;
  
 }
 
 .div-videos {
-  width: 320px;
-  height: 240px;
+  width: 20rem;
+  height: 15rem;
   border: 2px solid red;
+  margin: auto;
 }
 
 .div-videos video {
@@ -45,14 +46,14 @@ section {
 }
 
 footer {
-  padding: 12px;
+  padding: 1rem;
   background-color: rgba(255, 0, 0, 0.928);
   text-align: center;
 }
 
 .vid-pagina {
- padding-right: 16px;
- padding-left: 16px;
+ padding-right: 1rem;
+ padding-left: 1rem;
 }
 
 .vid {
@@ -63,10 +64,13 @@ footer {
 }
 
 div>h2 {
- padding-top: 16px;
- padding-bottom: 16px;
+ padding-top: 1rem;
+ padding-bottom: 1rem;
 }
 
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+
+}
 
 
 
