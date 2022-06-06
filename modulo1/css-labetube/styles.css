@@ -1,0 +1,76 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-direction: row;
+  padding: 1rem;
+  background-color: rgba(255, 0, 0, 0.928);
+}
+
+header input {
+  padding: 0.5rem;
+}
+
+.div-busca {
+  margin-left: auto;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  justify-content: space-between;
+ 
+}
+
+.div-videos {
+  width: 20rem;
+  height: 15rem;
+  border: 2px solid red;
+  margin: auto;
+}
+
+.div-videos video {
+  width: 100%;
+}
+
+.div-videos h3 {
+  text-align: center;
+
+}
+
+footer {
+  padding: 1rem;
+  background-color: rgba(255, 0, 0, 0.928);
+  text-align: center;
+}
+
+.vid-pagina {
+ padding-right: 1rem;
+ padding-left: 1rem;
+}
+
+.vid {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+div>h2 {
+ padding-top: 1rem;
+ padding-bottom: 1rem;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+
+}
+
+
+
