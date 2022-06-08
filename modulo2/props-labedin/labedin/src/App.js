@@ -22,7 +22,13 @@ function App() {
       </div>
       <CardPequeno
         imagem="https://static.vecteezy.com/ti/vetor-gratis/p1/581764-ilustracao-em-icone-email-gr%C3%A1tis-vetor.jpg"
-        descricao="hwrc@gmail.com"
+        nome="Email:"
+        descricao=" hwrc@gmail.com"
+      />
+      <CardPequeno
+        imagem="https://cdn-icons-png.flaticon.com/512/17/17589.png"
+        nome="Endereço: "
+        descricao=" Rua wow"
       />
 
       <div className="page-section-container">
@@ -30,7 +36,7 @@ function App() {
         <CardGrande
           imagem="https://s3.amazonaws.com/future4.com.br/static/headf4-c492117ca2373dc85ca81bf715b3dc2a.png"
           nome="Labenu"
-          descricao="Formando desenvolvedores para o mercado de trabalho!"
+          descricao="Estudante de desenvolvimento full stack"
         />
 
         <CardGrande
