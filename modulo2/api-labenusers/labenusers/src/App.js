@@ -1,47 +1,33 @@
-import "./App.css";
 import axios from "axios";
-
 import React, { Component } from "react";
+import Cadastro from "./components/Cadastro";
+import Lista from "./components/Lista";
 
-export default class App extends React.Component {
+export default class App extends Component {
   state = {
-    dados: [],
-    erro: "",
+    telaAtual: "cadastro",
   };
 
-  componentDidMount() {
-    this.pegarDados();
-  }
-  pegarDados = () => {
-    axios
-      .get(
-        "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-        {
-          headers: {
-            Authorization: "gabriel-carvalho-alves",
-          },
-        }
-      )
-      .then((resposta) => {
-        console.log(resposta.data);
-        this.setstate({ dados: resposta.data });
-      })
-      .catch((erro) => {
-        console.log(erro.response.data);
-        this.setState({ erro: erro.response.data });
-      });
+  setScreen = () => {
+    switch (this.state.telaAtual) {
+      case "cadastro":
+        return <Cadastro changeLista={this.changeLista} />;
+      case "lista":
+        return <Lista changeCadastro={this.changeCadastro} />;
+      default:
+        return <div>Tela não encontrada</div>;
+    }
   };
+
+  changeCadastro = () => {
+    this.setState({ telaAtual: "cadastro" });
+  };
+
+  changeLista = () => {
+    this.setState({ telaAtual: "lista" });
+  };
+
   render() {
-    return (
-      <div>
-        {this.state.erro ? (
-          <p>{this.state.erro}</p>
-        ) : (
-          this.state.dados.map((item) => {
-            return <p key={item.id}>{item.name}</p>;
-          })
-        )}
-      </div>
-    );
+    return <div>{this.setScreen()}</div>;
   }
 }
