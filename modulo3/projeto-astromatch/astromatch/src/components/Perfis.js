@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import react, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 function Perfis(props) {
   const [perfil, setPerfil] = useState([]);
@@ -12,7 +13,7 @@ function Perfis(props) {
   const pegaPerfil = () => {
     axios
       .get(
-        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/-gabriel-/person"
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/gabriel-/person"
       )
       .then((res) => {
         console.log(res.data.profile);
@@ -25,7 +26,7 @@ function Perfis(props) {
 
   const pegaLike = (escolha) => {
     const url =
-      "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/-gabriel-/choose-person";
+      "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/gabriel-/choose-person";
     const body = {
       id: perfil.id,
       choice: escolha,
@@ -34,24 +35,60 @@ function Perfis(props) {
     axios
       .post(url, body)
       .then((res) => {
-        console.log(res);
+        if (res.data.isMatch) {
+          alert("deu match");
+        }
+        pegaPerfil();
+      })
+      .catch((erro) => {
+        console.log(erro.response);
+      });
+  };
+
+  const limpaMatches = () => {
+    const url =
+      "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/gabriel-/clear";
+    const body = {
+      id: perfil.id,
+    };
+    axios
+      .put(url, body)
+      .then((res) => {
+        console.log(res.data);
+        alert("perfis resetados");
         pegaPerfil();
       })
       .catch((erro) => {
         console.log(erro);
       });
   };
+  // const handleOnClick = () => {
+  //   limpaMatches();
+  //   pegaPerfil();
+  // };
 
   return (
     <div>
       <h2>Perfis</h2>
-      <img src={perfil.photo} />
-      <br />
-      {`${perfil.name}, ${perfil.age}`}
-      <br />
-      {perfil.bio}
-      <button onClick={() => pegaLike(false)}>Dislike</button>
-      <button onClick={() => pegaLike(true)}>Like</button>
+      {perfil ? (
+        <div>
+          <img
+            src={perfil.photo}
+            alt={perfil.photo_alt}
+            height="400px"
+            width="300px"
+          />
+          <br />
+          {`${perfil.name}, ${perfil.age}`}
+          <br />
+          {perfil.bio}
+          <br />
+          <button onClick={() => pegaLike(false)}>Dislike</button>
+          <button onClick={() => pegaLike(true)}>Like</button>
+        </div>
+      ) : (
+        <button onClick={limpaMatches}>Resetar</button>
+      )}
     </div>
   );
 }

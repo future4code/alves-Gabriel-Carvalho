@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import react, { useState, useEffect } from "react";
 
-function Matches() {
+function Matches(props) {
   const [match, setMatch] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function Matches() {
   const pegaMatches = () => {
     axios
       .get(
-        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/-gabriel-/matches"
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/gabriel-/matches"
       )
       .then((res) => {
         console.log(res.data.matches);
@@ -24,7 +24,12 @@ function Matches() {
   };
 
   const listaMatches = match.map((perfil) => {
-    return <p>{perfil.name}</p>;
+    return (
+      <div>
+        <img src={perfil.photo} alt={perfil.photo_alt} height={50} width={50} />{" "}
+        <p>{perfil.name}</p>
+      </div>
+    );
   });
 
   return (

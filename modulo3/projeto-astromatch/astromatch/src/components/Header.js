@@ -1,9 +1,10 @@
 import react, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 function Header(props) {
   return (
     <div>
-      <h1>AstroMatch</h1>
+      <img src="" />
       {props.mudaBotao()}
     </div>
   );
