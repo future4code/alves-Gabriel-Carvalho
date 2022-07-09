@@ -4,6 +4,8 @@ import Perfis from "./components/Perfis";
 import Matches from "./components/Matches";
 import Header from "./components/Header";
 import styled from "styled-components";
+import match from "./components/img/user.png";
+import card from "./components/img/card.png";
 
 const ContainerCard = styled.div`
   display: flex;
@@ -11,19 +13,32 @@ const ContainerCard = styled.div`
   min-height: 100vh;
   justify-content: center;
   align-items: center;
-  object-fit: cover;
 `;
 
 const Content = styled.div`
-  background-color: #ffffff;
   box-shadow: #f95353 0px 2px 8px 0px;
   border-radius: 12px;
-  height: 600px;
+  height: 85vh;
+  width: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  object-fit: cover;
+  padding: 0px;
+  margin: 0;
+`;
+
+const LogoButton = styled.img`
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+`;
+
+const Button = styled.button`
+  background-color: white;
+  border: none;
+  cursor: pointer;
 `;
 
 function App() {
@@ -44,10 +59,18 @@ function App() {
   const mudaBotao = () => {
     if (tela === "perfis") {
       return (
-        <button onClick={() => mudaTela("matches")}>ir para Matches</button>
+        <Button onClick={() => mudaTela("matches")}>
+          {" "}
+          <LogoButton src={card} />{" "}
+        </Button>
       );
     } else if (tela === "matches") {
-      return <button onClick={() => mudaTela("perfis")}>ir para Perfis</button>;
+      return (
+        <Button onClick={() => mudaTela("perfis")}>
+          {" "}
+          <LogoButton src={match} />{" "}
+        </Button>
+      );
     } else {
       return "ERRO";
     }
@@ -56,8 +79,7 @@ function App() {
   return (
     <ContainerCard>
       <Content>
-        <Header mudaBotao={mudaBotao} mudaTela={mudaTela} />
-        <br /> {selecionaTela()}
+        <Header mudaBotao={mudaBotao} mudaTela={mudaTela} /> {selecionaTela()}
       </Content>
     </ContainerCard>
   );
