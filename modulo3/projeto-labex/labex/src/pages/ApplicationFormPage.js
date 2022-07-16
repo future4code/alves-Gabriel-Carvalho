@@ -3,9 +3,17 @@ import { useNavigate } from "react-router-dom";
 import { goBack } from "../routes/coordinator";
 import useForm from "../hooks/useForm";
 import { useGetData } from "../hooks/useGetData";
+import { BASE_URL } from "../constants/BASE_URL";
+import axios from "axios";
+import react, { useState, useEffect } from "react";
 
 function ApplicationFormPage() {
   const navigate = useNavigate();
+  const [id, setId] = useState("");
+
+  const onChangeId = (event) => {
+    setId(event.target.value);
+  };
 
   const { form, onChange, cleanFields } = useForm({
     name: "",
@@ -28,7 +36,19 @@ function ApplicationFormPage() {
 
   const sendForm = (event) => {
     event.preventDefault();
-    console.log("Form enviado");
+    console.log("Form enviado", form);
+    console.log(id);
+    cleanFields();
+
+    axios
+      .post(`${BASE_URL}/trips/${id}/apply`, form)
+      .then((res) => {
+        console.log(res.data);
+        // console.log(`${BASE_URL}/trips/${id}/apply`);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
   };
 
   return (
@@ -36,24 +56,49 @@ function ApplicationFormPage() {
       <p>ApplicationFormPage</p>
       <button onClick={() => goBack(navigate)}>Voltar</button>
       <br />
+
       <form onSubmit={sendForm}>
-        <select id={"select-trip"}>
-          <option value={""}> Nenhuma </option>
+        <select id={id} onChange={onChangeId} required>
+          <option> Nenhuma </option>
           {tripChoice}
         </select>
-        <input placeholder="Nome" value={form.name} />
-        <input placeholder="Idade" value={form.age} />
+        <input
+          placeholder="Nome"
+          value={form.name}
+          name={"name"}
+          required
+          onChange={onChange}
+          pattern={"^.{6,}"}
+          title={"O nome deve ter no mínimo 3 caracteres"}
+        />
+        <input
+          placeholder="Idade"
+          value={form.age}
+          name={"age"}
+          required
+          onChange={onChange}
+          type={"number"}
+          min={18}
+        />
         <input
           placeholder="Texto de Candidatura"
           value={form.applicationText}
-        />
-        <input placeholder="Profissão" value={form.profession} />
-        <select
-          name={"country"}
-          defaultValue={""}
-          // onChange={handleChange}
+          name={"applicationText"}
           required
-        >
+          onChange={onChange}
+          pattern={"^.{30,}"}
+          title={"O texto deve ter no mínimo 30 caracteres"}
+        />
+        <input
+          placeholder="Profissão"
+          value={form.profession}
+          name={"profession"}
+          required
+          onChange={onChange}
+          pattern={"^.{10,}"}
+          title={"A profissão deve ter no mínimo 10 caracteres"}
+        />
+        <select name={"country"} defaultValue={""} onChange={onChange} required>
           <option value="" disabled>
             Escolha um País
           </option>
