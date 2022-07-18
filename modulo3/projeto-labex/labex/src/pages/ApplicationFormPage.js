@@ -6,6 +6,54 @@ import { useGetData } from "../hooks/useGetData";
 import { BASE_URL } from "../constants/BASE_URL";
 import axios from "axios";
 import react, { useState, useEffect } from "react";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  color: white;
+  font-weight: bold;
+  opacity: 0.7;
+`;
+const Buttons = styled.div`
+  display: flex;
+  /* padding: 10px; */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+const Button = styled.button`
+  background-color: white;
+  color: white;
+  border-radius: 10px;
+  font-size: large;
+  padding: 12px;
+  margin: 8px;
+  color: blueviolet;
+  font-weight: bold;
+  :hover {
+    background-color: blueviolet;
+    color: white;
+  }
+`;
+
+const Form = styled.input`
+  width: 75vh;
+  height: 5vh;
+  border-radius: 10px;
+  font-size: 16px;
+`;
+const Select = styled.select`
+  width: 76.5vh;
+  height: 5vh;
+  border-radius: 10px;
+  font-size: 16px;
+`;
 
 function ApplicationFormPage() {
   const navigate = useNavigate();
@@ -36,14 +84,13 @@ function ApplicationFormPage() {
 
   const sendForm = (event) => {
     event.preventDefault();
-    console.log("Form enviado", form);
-    console.log(id);
+    alert("Aplicado com sucesso");
     cleanFields();
 
     axios
       .post(`${BASE_URL}/trips/${id}/apply`, form)
       .then((res) => {
-        console.log(res.data);
+        alert("Erro");
         // console.log(`${BASE_URL}/trips/${id}/apply`);
       })
       .catch((err) => {
@@ -52,17 +99,16 @@ function ApplicationFormPage() {
   };
 
   return (
-    <div>
-      <p>ApplicationFormPage</p>
-      <button onClick={() => goBack(navigate)}>Voltar</button>
-      <br />
+    <Container>
+      <p>Aplicar para Viagem</p>
 
       <form onSubmit={sendForm}>
-        <select id={id} onChange={onChangeId} required>
+        <Select id={id} onChange={onChangeId} required>
           <option> Nenhuma </option>
           {tripChoice}
-        </select>
-        <input
+        </Select>
+        <br />
+        <Form
           placeholder="Nome"
           value={form.name}
           name={"name"}
@@ -71,7 +117,8 @@ function ApplicationFormPage() {
           pattern={"^.{6,}"}
           title={"O nome deve ter no mínimo 3 caracteres"}
         />
-        <input
+        <br />
+        <Form
           placeholder="Idade"
           value={form.age}
           name={"age"}
@@ -80,7 +127,8 @@ function ApplicationFormPage() {
           type={"number"}
           min={18}
         />
-        <input
+        <br />
+        <Form
           placeholder="Texto de Candidatura"
           value={form.applicationText}
           name={"applicationText"}
@@ -89,7 +137,8 @@ function ApplicationFormPage() {
           pattern={"^.{30,}"}
           title={"O texto deve ter no mínimo 30 caracteres"}
         />
-        <input
+        <br />
+        <Form
           placeholder="Profissão"
           value={form.profession}
           name={"profession"}
@@ -98,7 +147,8 @@ function ApplicationFormPage() {
           pattern={"^.{10,}"}
           title={"A profissão deve ter no mínimo 10 caracteres"}
         />
-        <select name={"country"} defaultValue={""} onChange={onChange} required>
+        <br />
+        <Select name={"country"} defaultValue={""} onChange={onChange} required>
           <option value="" disabled>
             Escolha um País
           </option>
@@ -378,10 +428,13 @@ function ApplicationFormPage() {
           <option value="Wallis e Futuna">Wallis e Futuna</option>
           <option value="Zimbabwe">Zimbabwe</option>
           <option value="Zâmbia">Zâmbia</option>
-        </select>
-        <button>Enviar</button>
+        </Select>
+        <Buttons>
+          <Button onClick={() => goBack(navigate)}>Voltar</Button>
+          <Button>Aplicar</Button>
+        </Buttons>
       </form>
-    </div>
+    </Container>
   );
 }
 

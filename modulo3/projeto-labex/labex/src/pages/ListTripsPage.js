@@ -7,6 +7,45 @@ import styled from "styled-components";
 
 const Trips = styled.div`
   border: 1px solid black;
+  background-color: white;
+  color: black;
+  box-shadow: #456075 0px 2px 8px 0px;
+  margin: 32px;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 16px;
+  opacity: 0.7;
+`;
+
+const Buttons = styled.div`
+  display: flex;
+  /* padding: 10px; */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+`;
+
+const Button = styled.button`
+  background-color: white;
+  color: white;
+  border-radius: 10px;
+  font-size: large;
+  padding: 12px;
+  margin: 8px;
+  color: blueviolet;
+  font-weight: bold;
+  :hover {
+    background-color: blueviolet;
+    color: white;
+  }
+`;
+
+const List = styled.div`
+  font-size: bold;
+  color: white;
+  margin: 0 auto;
+  opacity: 0.7;
 `;
 
 function ListTripsPage() {
@@ -37,14 +76,17 @@ function ListTripsPage() {
   };
 
   return (
-    <div>
-      <p>ListTripsPage</p>
-      <button onClick={() => goBack(navigate)}>Voltar</button>
-      <button onClick={() => goToApplicationFormPage(navigate)}>
-        Inscrever-se
-      </button>
+    <List>
+      <Buttons>
+        <h1>Lista de Viagens</h1>
+        <Button onClick={() => goBack(navigate)}>Voltar</Button>
+        <Button onClick={() => goToApplicationFormPage(navigate)}>
+          Inscrever-se
+        </Button>
+      </Buttons>
+
       {returnTrips()}
-    </div>
+    </List>
   );
 }
 

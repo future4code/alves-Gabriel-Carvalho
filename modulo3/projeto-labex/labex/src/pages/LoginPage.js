@@ -4,7 +4,46 @@ import { goToAdminHomePage } from "../routes/coordinator";
 import { useNavigate } from "react-router-dom";
 import useForm from "../hooks/useForm";
 import axios from "axios";
+import styled from "styled-components";
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  color: white;
+  font-weight: bold;
+  opacity: 0.7;
+`;
+const Buttons = styled.div`
+  display: flex;
+  /* padding: 10px; */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+const Button = styled.button`
+  background-color: white;
+  color: white;
+  border-radius: 10px;
+  font-size: large;
+  padding: 12px;
+  margin: 8px;
+  color: blueviolet;
+  font-weight: bold;
+  :hover {
+    background-color: blueviolet;
+    color: white;
+  }
+`;
+
+const Form = styled.input`
+  width: 50vh;
+  height: 4vh;
+`;
 function LoginPage() {
   const navigate = useNavigate();
 
@@ -35,12 +74,11 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <p>LoginPage</p>
-      <button onClick={() => goBack(navigate)}>Voltar</button>
+    <Container>
+      <p>Login</p>
 
       <form onSubmit={sendForm}>
-        <input
+        <Form
           placeholder="Email"
           value={form.email}
           name={"email"}
@@ -48,7 +86,8 @@ function LoginPage() {
           onChange={onChange}
           type={"email"}
         />
-        <input
+        <br />
+        <Form
           placeholder="Senha"
           value={form.password}
           name={"password"}
@@ -57,9 +96,13 @@ function LoginPage() {
           type={"password"}
           pattern={"^.{3,}"}
         />
-        <button>Enviar</button>
+        <br />
+        <Buttons>
+          <Button onClick={() => goBack(navigate)}>Voltar</Button>
+          <Button>Entrar</Button>
+        </Buttons>
       </form>
-    </div>
+    </Container>
   );
 }
 
