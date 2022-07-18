@@ -1,4 +1,4 @@
-# Astromatch
+# LabeX
 
 ## Desenvolvedor
 
