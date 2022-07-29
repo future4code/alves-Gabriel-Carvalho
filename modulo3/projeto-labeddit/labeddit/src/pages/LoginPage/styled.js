@@ -42,16 +42,64 @@ export const Image = styled.div`
 `;
 
 export const Input = styled.input`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 1px solid #d5d8de;
   border-radius: 0.25rem;
   background: #ffffff;
   width: 22.688rem;
   height: 3.75rem;
   color: black;
-  margin-top: 4.688rem;
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
+  margin-bottom: 0.5rem;
+  ::placeholder {
+    padding-left: 0.5rem;
+  }
+`;
+
+export const Form = styled.form`
+  margin-top: 4.688rem;
+  text-align: center;
+`;
+
+export const ButtonLogin = styled.button`
+  margin-top: 3.688rem;
+  padding: 13px 133px;
+  gap: 10px;
+  width: 365px;
+  height: 51px;
+  background: linear-gradient(90deg, #ff6489 0%, #f9b24e 100%);
+  border-radius: 27px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: white;
+  border: none;
+`;
+
+export const ButtonSignUp = styled.button`
+  margin-top: 2rem;
+  gap: 10px;
+  width: 365px;
+  height: 51px;
+  background: white;
+  border-radius: 27px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: #fe7e02;
+  border: 1px solid #fe7e02;
+  text-align: center;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 `;
