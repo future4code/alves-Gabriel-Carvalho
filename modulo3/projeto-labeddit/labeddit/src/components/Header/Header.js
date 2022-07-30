@@ -7,12 +7,17 @@ import { goToLoginPage } from "../../routes/coordinator";
 
 function Header() {
   const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("token");
+  };
+
   const headerButton = () => {
     if (
       window.location.pathname === `/` ||
       window.location.pathname === `/post/:id`
     ) {
-      return <Button>Logout</Button>;
+      return <Button onClick={logout()}>Logout</Button>;
     } else if (window.location.pathname === `/signup`) {
       return <Button onClick={() => goToLoginPage(navigate)}>Entrar</Button>;
     } else if (window.location.pathname === `/login`) {

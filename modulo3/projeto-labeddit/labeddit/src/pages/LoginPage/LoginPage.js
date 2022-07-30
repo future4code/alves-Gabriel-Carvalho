@@ -9,11 +9,14 @@ import {
   ButtonLogin,
 } from "./styled";
 import Logo from "../../assets/logo-maior.png";
-import useForm from "../../hooks/useForm";
 import { useNavigate } from "react-router-dom";
 import { goToSignUpPage } from "../../routes/coordinator";
+import { login } from "../../services/users";
+import useForm from "../../hooks/useForm";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 
 function LoginPage() {
+  useUnprotectedPage();
   const navigate = useNavigate();
   const { form, handleInputChange, clear } = useForm({
     email: "",
@@ -22,6 +25,7 @@ function LoginPage() {
 
   const onSubmitForm = (event) => {
     event.preventDefault();
+    login(form, clear, navigate);
   };
 
   return (
@@ -41,6 +45,7 @@ function LoginPage() {
           placeholder="Nome"
           required
           type={"email"}
+          autoFocus
         />
         <Input
           name={"password"}
