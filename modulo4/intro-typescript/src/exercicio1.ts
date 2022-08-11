@@ -1,4 +1,4 @@
-export function checaTriangulo(a:number, b:number, c:number):string {
+export function checaTriangulo(a: number, b: number, c: number): string {
   if (a !== b && b !== c) {
     return "Escaleno";
   } else if (a === b && b === c) {
@@ -7,4 +7,3 @@ export function checaTriangulo(a:number, b:number, c:number):string {
     return "Isósceles";
   }
 }
-
