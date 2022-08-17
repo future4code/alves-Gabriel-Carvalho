@@ -85,9 +85,17 @@ app.get("/posts", (req: Request, res: Response) => {
 });
 
 app.get("/users/:userId/posts", (req: Request, res: Response) => {
-  const userId = req.headers.userId;
-  const posts = userPosts.map((user) => {
-    return user.body === userId;
+  let newObj = {};
+  const userId = req.params.userId;
+  const posts = userPosts.map((post) => {
+    if (post.userId === userId) {
+      return (newObj = {
+        id: post.id,
+        title: post.title,
+        body: post.body,
+        userId: post.userId,
+      });
+    }
   });
   res.send(posts);
 });
