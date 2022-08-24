@@ -1,0 +1,34 @@
+GET http://localhost:3003/actor/1661351080606
+
+###
+
+GET http://localhost:3003/actor?gender=female
+
+###
+PUT http://localhost:3003/actor/1661346036775
+Content-Type: application/json
+
+{
+  "salary": 999999
+}
+
+###
+DELETE http://localhost:3003/actor/1661351080606
+
+###
+POST http://localhost:3003/movie
+Content-Type: application/json
+
+
+{
+  "title": "Teste",
+  "sinopse": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum",
+  "release_date": "1980-01-01",
+  "rating": 6.5,
+  "playing_limit_date": "2022-12-12"
+}
+
+###
+GET http://localhost:3003/movie/all
+
+
