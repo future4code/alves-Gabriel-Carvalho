@@ -1,0 +1,55 @@
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+	"name": "Gabriel",
+	"nickname": "gawen",
+	"email": "gabriel@dev.com"
+}
+
+###
+GET http://localhost:3003/user/1661525359252
+
+###
+PUT http://localhost:3003/user/1661525359252
+Content-Type: application/json
+
+{
+	"name": "Astro Dev",
+	"nickname": "astrodev"
+}
+###
+POST http://localhost:3003/task
+Content-Type: application/json
+
+{
+	"title": "Teste",
+	"description": "Teste",
+	"limitDate": "04/05/2020",
+	"creatorUserId": "1661525359252"
+}
+
+### 
+GET http://localhost:3003/task/1661541286405
+
+###
+GET http://localhost:3003/user/all
+
+###
+GET http://localhost:3003/task?creatorUserId=1661525359252
+
+###
+POST http://localhost:3003/task/responsible
+Content-Type: application/json
+
+{
+	"task_id": "1661541286405",
+	"responsible_user_id": "1661525359252"
+}
+
+###
+GET http://localhost:3003/task/1661541286405/responsible
+
+
+
+
