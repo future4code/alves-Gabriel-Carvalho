@@ -2,9 +2,9 @@ POST http://localhost:3003/user
 Content-Type: application/json
 
 {
-	"name": "Gabriel",
-	"nickname": "gawen",
-	"email": "gabriel@dev.com"
+	"name": "Teste",
+	"nickname": "teste",
+	"email": "teste@dev.com"
 }
 
 ###
@@ -49,6 +49,30 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3003/task/1661541286405/responsible
+###
+PUT http://localhost:3003/task/status/1661541286405
+Content-Type: application/json
+
+{
+	"status": "doing"
+}
+###
+GET http://localhost:3003/task/search?status=doing
+
+###
+GET http://localhost:3003/task/delayed
+
+###
+DELETE http://localhost:3003/task/1661541286405/responsible/1661525359252
+
+###
+GET http://localhost:3003/task/1661541286405/responsiblesTask
+
+###
+DELETE http://localhost:3003/task/1661705025313
+
+###
+DELETE http://localhost:3003/user/1661705252507
 
 
 
