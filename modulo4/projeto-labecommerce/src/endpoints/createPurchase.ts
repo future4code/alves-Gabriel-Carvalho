@@ -19,3 +19,27 @@ export const createPurchase = async (
     res.status(500).send("Um erro inesperado aconteceu");
   }
 };
+
+export const getPurchase = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const result = await connection("labecommerce_purchases")
+      .select(
+        "labecommerce_users.name",
+        "labecommerce_products.name",
+        "quantity",
+        "total_price"
+      )
+      .join("labecommerce_users", "user_id", "labecommerce_users.id")
+      .join("labecommerce_products", "product_id", "labecommerce_products.id")
+      .where({
+        user_id: req.params.user_id,
+      });
+    res.send(result);
+  } catch (error: any) {
+    console.log(error);
+    res.status(500).send("Um erro inesperado aconteceu");
+  }
+};

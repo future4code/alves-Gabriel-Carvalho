@@ -3,8 +3,7 @@ import { createUsers } from "./endpoints/createUsers";
 import { getUsers } from "./endpoints/getUsers";
 import { createProducts } from "./endpoints/createProducts";
 import { getProducts } from "./endpoints/getProducts";
-import { createPurchase } from "./endpoints/createPurchase";
-import { getPurchase } from "./endpoints/getPurchase";
+import { createPurchase, getPurchase } from "./endpoints/createPurchase";
 
 app.post("/users", createUsers);
 app.get("/users", getUsers);

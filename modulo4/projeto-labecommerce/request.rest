@@ -33,3 +33,9 @@ Content-Type: application/json
   "quantity": 10,
 	"total_price":99.9
 }
+
+###
+GET http://localhost:3003/users/1662316280348/purchases
+###
+
+GET http://localhost:3003/products?name=camiseta
