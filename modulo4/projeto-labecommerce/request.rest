@@ -1,0 +1,35 @@
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+	"name": "Isabela",
+	"email": "isabela@dev.com",
+  "password": "1234"
+}
+###
+GET http://localhost:3003/users
+###
+
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+	"name": "Camiseta",
+	"price": 9.99,
+  "password": "1234",
+	"image_url": "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
+}
+
+###
+GET http://localhost:3003/products
+
+###
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{
+	"user_id": "1662316280348",
+	"product_id": "1662317955890",
+  "quantity": 10,
+	"total_price":99.9
+}
