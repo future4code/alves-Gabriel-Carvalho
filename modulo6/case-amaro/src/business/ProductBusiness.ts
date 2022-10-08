@@ -1,4 +1,10 @@
-import { IProductDB, Product } from "./../models/Products";
+import {
+  IGetProductsDBDTO,
+  IGetProductsInputDTO,
+  IGetProductsOutputDTO,
+  IProductDB,
+  Product,
+} from "./../models/Products";
 import { ProductDatabase } from "../database/ProductDatabase";
 import { Authenticator } from "../services/Authenticator";
 import { productsJson } from "../database/migrations/data";
@@ -35,6 +41,43 @@ export class ProductBusiness {
       message: "Dados inseridos com sucesso",
       token,
     };
+    return response;
+  };
+
+  public getProductsByNameOrTag = async (input: IGetProductsInputDTO) => {
+    const token = input.token;
+    const search = input.search || "";
+    const order = input.order || "ASC";
+    const sort = input.sort || "name";
+    const limit = Number(input.limit) || 10;
+    const page = Number(input.page) || 1;
+
+    const offset = limit * (page - 1);
+
+    const payload = this.authenticator.getTokenPayload(token);
+
+    if (!payload) {
+      throw new Error("Token inválido ou faltando");
+    }
+
+    const getProductsInputDB: IGetProductsDBDTO = {
+      search,
+      order,
+      sort,
+      limit,
+      offset,
+    };
+
+    const productsDB = await this.productDatabase.getProductsByNameOrTag(
+      getProductsInputDB
+    );
+
+    const products = Product.mapProductsToFront(productsDB);
+
+    const response: IGetProductsOutputDTO = {
+      products,
+    };
+
     return response;
   };
 }

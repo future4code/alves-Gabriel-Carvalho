@@ -1,18 +1,9 @@
-import { IProductDB, Product } from "../models/Products";
+import { IGetProductsDBDTO, IProductDB, Product } from "./../models/Products";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class ProductDatabase extends BaseDatabase {
   public static TABLE_PRODUCTS = "Case_Amaro_Products";
   public static TABLE_TAGS = "Case_Amaro_Tags";
-
-  public toProductDBModel = (product: Product): IProductDB => {
-    const productDB: IProductDB = {
-      id: product.getId().toString(),
-      name: product.getName(),
-      tags: product.getTags(),
-    };
-    return productDB;
-  };
 
   insertData = async (id: number, name: string, tags: string[]) => {
     await BaseDatabase.connection(ProductDatabase.TABLE_PRODUCTS)
@@ -22,5 +13,25 @@ export class ProductDatabase extends BaseDatabase {
         tags: JSON.stringify(tags),
       })
       .onDuplicateUpdate("id", "name", "tags");
+  };
+
+  public getProductsByNameOrTag = async (input: IGetProductsDBDTO) => {
+    const search = input.search;
+    const order = input.order;
+    const sort = input.sort;
+    const limit = input.limit;
+    const offset = input.offset;
+
+    const productDB: IProductDB[] = await BaseDatabase.connection(
+      ProductDatabase.TABLE_PRODUCTS
+    )
+      .select()
+      .where("name", "LIKE", `%${search}%`)
+      .orWhere("tags", "LIKE", `%${search}%`)
+      .orderBy(sort, order)
+      .limit(limit)
+      .offset(offset);
+    console.log(productDB);
+    return productDB;
   };
 }
