@@ -7,7 +7,6 @@ export class ProductController {
 
   public insert = async (req: Request, res: Response) => {
     try {
-      const token = req.headers.authorization as string;
       const response = await this.productBusiness.insert();
       res.status(200).send(response);
     } catch (error: any) {
@@ -15,7 +14,7 @@ export class ProductController {
     }
   };
 
-  public getProductsByNameOrTag = async (req: Request, res: Response) => {
+  public getProducts = async (req: Request, res: Response) => {
     try {
       const input: IGetProductsInputDTO = {
         token: req.headers.authorization as string,
@@ -26,7 +25,7 @@ export class ProductController {
         page: req.query.page as string,
       };
 
-      const response = await this.productBusiness.getProductsByNameOrTag(input);
+      const response = await this.productBusiness.getProducts(input);
 
       res.status(200).send(response);
     } catch (error: any) {

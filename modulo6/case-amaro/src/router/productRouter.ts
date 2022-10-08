@@ -16,4 +16,4 @@ const productController = new ProductController(
 );
 
 productRouter.post("/insert", productController.insert);
-productRouter.get("/", productController.getProductsByNameOrTag);
+productRouter.get("/", productController.getProducts);

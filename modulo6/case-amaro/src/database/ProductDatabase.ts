@@ -5,7 +5,11 @@ export class ProductDatabase extends BaseDatabase {
   public static TABLE_PRODUCTS = "Case_Amaro_Products";
   public static TABLE_TAGS = "Case_Amaro_Tags";
 
-  insertData = async (id: number, name: string, tags: string[]) => {
+  insertData = async (
+    id: number,
+    name: string,
+    tags: string[]
+  ): Promise<void> => {
     await BaseDatabase.connection(ProductDatabase.TABLE_PRODUCTS)
       .insert({
         id: id,
@@ -15,7 +19,9 @@ export class ProductDatabase extends BaseDatabase {
       .onDuplicateUpdate("id", "name", "tags");
   };
 
-  public getProductsByNameOrTag = async (input: IGetProductsDBDTO) => {
+  public searchProducts = async (
+    input: IGetProductsDBDTO
+  ): Promise<IProductDB[] | undefined> => {
     const search = input.search;
     const order = input.order;
     const sort = input.sort;
@@ -28,6 +34,7 @@ export class ProductDatabase extends BaseDatabase {
       .select()
       .where("name", "LIKE", `%${search}%`)
       .orWhere("tags", "LIKE", `%${search}%`)
+      .orWhere("id", "LIKE", `%${search}%`)
       .orderBy(sort, order)
       .limit(limit)
       .offset(offset);

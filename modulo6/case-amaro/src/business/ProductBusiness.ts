@@ -9,6 +9,8 @@ import { ProductDatabase } from "../database/ProductDatabase";
 import { Authenticator } from "../services/Authenticator";
 import { productsJson } from "../database/migrations/data";
 import { IdGenerator } from "../services/IdGenerator";
+import { NotFoundError } from "../errors/NotFoundError";
+import { AuthenticationError } from "../errors/AuthenticationError";
 
 export class ProductBusiness {
   constructor(
@@ -44,7 +46,7 @@ export class ProductBusiness {
     return response;
   };
 
-  public getProductsByNameOrTag = async (input: IGetProductsInputDTO) => {
+  public getProducts = async (input: IGetProductsInputDTO) => {
     const token = input.token;
     const search = input.search || "";
     const order = input.order || "ASC";
@@ -57,7 +59,7 @@ export class ProductBusiness {
     const payload = this.authenticator.getTokenPayload(token);
 
     if (!payload) {
-      throw new Error("Token inválido ou faltando");
+      throw new AuthenticationError("Token inválido ou faltando");
     }
 
     const getProductsInputDB: IGetProductsDBDTO = {
@@ -68,9 +70,12 @@ export class ProductBusiness {
       offset,
     };
 
-    const productsDB = await this.productDatabase.getProductsByNameOrTag(
+    const productsDB = await this.productDatabase.searchProducts(
       getProductsInputDB
     );
+    if (!productsDB) {
+      throw new Error();
+    }
 
     const products = Product.mapProductsToFront(productsDB);
 
