@@ -53,16 +53,19 @@ export class Product {
     return this.tags;
   };
 
-  public static mapProductsToFront = (productsDB: IProductDB[]) => {
+  public static mapProducts = (productsDB: IProductDB[]) => {
     return productsDB.map((productDB) => {
-      const product = new Product(productDB.id, productDB.name, productDB.tags);
+      const product = new Product(
+        productDB.id,
+        productDB.name,
+        JSON.parse(productDB.tags.toString())
+      );
 
-      const productResponse: IGetProducts = {
+      const productResponse = {
         id: product.getId(),
         name: product.getName(),
-        tags: JSON.parse(product.getTags().toString()),
+        tags: product.getTags(),
       };
-
       return productResponse;
     });
   };

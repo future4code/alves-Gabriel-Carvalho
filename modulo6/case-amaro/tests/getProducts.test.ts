@@ -23,8 +23,12 @@ describe("Testando o método getProducts da ProductBusiness", () => {
       page: "1",
     };
     const response = await productBusiness.getProducts(input);
-    expect(response.products.length).toBe(3);
-    expect(response.products).toBeInstanceOf(Product);
+    expect(response.products.length).toEqual(2);
+    expect(response.products[0]).toEqual({
+      id: "8371",
+      name: "VESTIDO TRICOT CHEVRON",
+      tags: ["balada", "neutro", "delicado", "festa"],
+    });
   });
 
   test("Erro ao não passar o token", async () => {

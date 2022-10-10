@@ -38,7 +38,6 @@ export class ProductDatabase extends BaseDatabase {
       .orderBy(sort, order)
       .limit(limit)
       .offset(offset);
-    console.log(productDB);
     return productDB;
   };
 }

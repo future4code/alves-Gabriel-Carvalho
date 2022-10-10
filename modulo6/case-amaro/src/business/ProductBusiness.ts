@@ -74,10 +74,10 @@ export class ProductBusiness {
       getProductsInputDB
     );
     if (!productsDB) {
-      throw new Error();
+      throw new NotFoundError();
     }
 
-    const products = Product.mapProductsToFront(productsDB);
+    const products = Product.mapProducts(productsDB);
 
     const response: IGetProductsOutputDTO = {
       products,
