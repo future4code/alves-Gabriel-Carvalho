@@ -1,0 +1,44 @@
+### Endpoint de signup
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+  "name":"Gabriel",
+  "email":"gabriel@dev.com",
+  "password":"123456"
+}
+
+### Endpoint de login
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+  "email":"gabriel@dev.com",
+  "password":"123456"
+}
+
+### Endpoint de criar post
+
+POST http://localhost:3003/posts/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyMWUwZGQ5LTY3OGYtNGY3ZC1iODdmLThiZjE5NWI2OGZjNCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjQ0Nzg0MzYsImV4cCI6MTY2NDU2NDgzNn0.WLN4WB9DaMXlcCUIfpfWA0T1TdEryfstudFovW_uDy4
+
+{
+  "content":"Olá mundo!, Olá mundo!, Olá mundo!"
+}
+
+### Endpoint de pegar posts
+GET http://localhost:3003/posts/getall
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyMWUwZGQ5LTY3OGYtNGY3ZC1iODdmLThiZjE5NWI2OGZjNCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjQ0ODA2NzMsImV4cCI6MTY2NDU2NzA3M30.QImQgLewjTRW3hbgLBliZUCfOuruLZ1xX99RGDSsVFA
+
+### Endpoint de deletar posts
+DELETE http://localhost:3003/posts/fd31b24b-1ef8-4e4f-8d0d-1719a5ed3706
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyMWUwZGQ5LTY3OGYtNGY3ZC1iODdmLThiZjE5NWI2OGZjNCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjQ0ODA2NzMsImV4cCI6MTY2NDU2NzA3M30.QImQgLewjTRW3hbgLBliZUCfOuruLZ1xX99RGDSsVFA
+
+### Endpoint de dar like
+POST http://localhost:3003/posts/like/201
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyMWUwZGQ5LTY3OGYtNGY3ZC1iODdmLThiZjE5NWI2OGZjNCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjQ0ODA2NzMsImV4cCI6MTY2NDU2NzA3M30.QImQgLewjTRW3hbgLBliZUCfOuruLZ1xX99RGDSsVFA
+
+### Endpoint de remover like
+DELETE http://localhost:3003/posts/unlike/201
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyMWUwZGQ5LTY3OGYtNGY3ZC1iODdmLThiZjE5NWI2OGZjNCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjQ0ODA2NzMsImV4cCI6MTY2NDU2NzA3M30.QImQgLewjTRW3hbgLBliZUCfOuruLZ1xX99RGDSsVFA
