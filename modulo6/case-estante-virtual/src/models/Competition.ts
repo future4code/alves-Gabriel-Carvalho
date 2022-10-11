@@ -1,8 +1,14 @@
+export interface ICompetitionDB {
+  id: string;
+  name: string;
+  is_closed: boolean;
+}
+
 export class Competition {
   constructor(
     private id: string,
     private name: string,
-    private status: string
+    private isClosed: boolean = false
   ) {}
 
   public getId = () => {
@@ -13,8 +19,8 @@ export class Competition {
     return this.name;
   };
 
-  public getStatus = () => {
-    return this.status;
+  public getIsClosed = () => {
+    return this.isClosed;
   };
 
   public setId = (newId: string) => {
@@ -25,7 +31,7 @@ export class Competition {
     this.name = newName;
   };
 
-  public setStatus = (newStatus: string) => {
-    this.status = newStatus;
+  public setIsClosed = (newIsClosed: boolean) => {
+    this.isClosed = newIsClosed;
   };
 }
