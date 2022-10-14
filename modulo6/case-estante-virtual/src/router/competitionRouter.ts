@@ -11,3 +11,4 @@ const competitionController = new CompetitionController(
 );
 
 competitionRouter.post("/create", competitionController.create);
+competitionRouter.post("/close/:id", competitionController.close);

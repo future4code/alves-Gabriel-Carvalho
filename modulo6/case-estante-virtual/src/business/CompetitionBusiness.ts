@@ -10,9 +10,11 @@ export class CompetitionBusiness {
     private idGenerator: IdGenerator
   ) {}
 
-  public create = async (name: string) => {
-    if (!name) {
-      throw new ParamsError();
+  public create = async (name: string, attempts: number) => {
+    if (!name || !attempts) {
+      throw new ParamsError(
+        "Deve ser passado o nome e a quantidade de chances da competição"
+      );
     }
 
     if (typeof name !== "string") {
@@ -27,12 +29,21 @@ export class CompetitionBusiness {
     }
     const id = this.idGenerator.generate();
 
-    const competition = new Competition(id, name);
+    const competition = new Competition(id, name, attempts);
 
     await this.competitionDatabase.createCompetition(competition);
 
     const response = {
       message: "Competição criada com sucesso",
+    };
+
+    return response;
+  };
+
+  public close = async (id: string) => {
+    await this.competitionDatabase.closeCompetition(id);
+    const response = {
+      message: "Competição finalizada com sucesso",
     };
 
     return response;

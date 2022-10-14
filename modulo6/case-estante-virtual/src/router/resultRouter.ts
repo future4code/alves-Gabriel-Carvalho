@@ -12,3 +12,4 @@ const resultController = new ResultController(
 );
 
 resultRouter.post("/create", resultController.create);
+resultRouter.get("/ranking/:id", resultController.getResults);

@@ -8,7 +8,8 @@ export class CompetitionDatabase extends BaseDatabase {
     const competitionDB: ICompetitionDB = {
       id: competition.getId(),
       name: competition.getName(),
-      is_closed: competition.getIsClosed(),
+      attempts: competition.getAttempts(),
+      is_closed: competition.getIsClosed()!,
     };
 
     return competitionDB;
@@ -34,5 +35,11 @@ export class CompetitionDatabase extends BaseDatabase {
     await BaseDatabase.connection(CompetitionDatabase.TABLE_COMPETITION).insert(
       competitionDB
     );
+  };
+
+  public closeCompetition = async (id: string): Promise<void> => {
+    await BaseDatabase.connection(CompetitionDatabase.TABLE_COMPETITION)
+      .update({ is_closed: true })
+      .where({ id });
   };
 }
