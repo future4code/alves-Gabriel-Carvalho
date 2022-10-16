@@ -79,7 +79,7 @@ export class ResultDatabase extends BaseDatabase {
     id: string
   ): Promise<IGetDartRankingDTO | undefined> => {
     const result: IGetDartRankingDTO[] = await BaseDatabase.connection.raw(`
-    select ${ResultDatabase.TABLE_COMPETITION}.name as competition, ${ResultDatabase.TABLE_ATHLETE}.name as athlete, GREATEST(${ResultDatabase.TABLE_RESULT}.value, ${ResultDatabase.TABLE_RESULT}.value_2, ${ResultDatabase.TABLE_RESULT}.value_3) as result from ${ResultDatabase.TABLE_RESULT}
+    select ${ResultDatabase.TABLE_COMPETITION}.name as competition, ${ResultDatabase.TABLE_ATHLETE}.name as athlete, GREATEST(${ResultDatabase.TABLE_RESULT}.value, ${ResultDatabase.TABLE_RESULT}.value_2, ${ResultDatabase.TABLE_RESULT}.value_3) as result, (${ResultDatabase.TABLE_RESULT}.unit) as unidade from ${ResultDatabase.TABLE_RESULT}
     join ${ResultDatabase.TABLE_COMPETITION}
     ON ${ResultDatabase.TABLE_RESULT}.competition_id = ${ResultDatabase.TABLE_COMPETITION}.id
     join ${ResultDatabase.TABLE_ATHLETE}
@@ -93,7 +93,7 @@ export class ResultDatabase extends BaseDatabase {
     id: string
   ): Promise<IGetDartRankingDTO | undefined> => {
     const result: IGetDartRankingDTO[] = await BaseDatabase.connection.raw(`
-    select ${ResultDatabase.TABLE_COMPETITION}.name as competition, ${ResultDatabase.TABLE_ATHLETE}.name as name, (${ResultDatabase.TABLE_RESULT}.value) as result from ${ResultDatabase.TABLE_RESULT}
+    select ${ResultDatabase.TABLE_COMPETITION}.name as competition, ${ResultDatabase.TABLE_ATHLETE}.name as name, (${ResultDatabase.TABLE_RESULT}.value) as result, (${ResultDatabase.TABLE_RESULT}.unit) as unidade from ${ResultDatabase.TABLE_RESULT}
     join ${ResultDatabase.TABLE_COMPETITION}
     ON ${ResultDatabase.TABLE_RESULT}.competition_id = ${ResultDatabase.TABLE_COMPETITION}.id
     join ${ResultDatabase.TABLE_ATHLETE}

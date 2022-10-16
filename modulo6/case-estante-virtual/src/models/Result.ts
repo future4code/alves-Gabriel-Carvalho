@@ -85,4 +85,5 @@ export interface IGetDartRankingDTO {
   competition: string;
   athlete: string;
   result: number;
+  unit: string;
 }

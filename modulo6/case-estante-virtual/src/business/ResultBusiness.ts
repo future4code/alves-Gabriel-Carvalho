@@ -4,6 +4,7 @@ import { ICreateResultInputDTO, Result } from "../models/Result";
 import { ParamsError } from "../errors/ParamsError";
 import { NotFoundError } from "../errors/NotFoundError";
 import { off } from "process";
+import { ConflictError } from "../errors/ConflictError";
 
 export class ResultBusiness {
   constructor(
@@ -24,10 +25,12 @@ export class ResultBusiness {
           "Essa competição requer 3 valores para os resultados"
         );
       }
-    } else if (value_2 || value_3) {
-      throw new ParamsError(
-        "Nessa competição, só se pode cadastrar 1 valor para os resultados"
-      );
+    } else {
+      if (value_2 || value_3) {
+        throw new ParamsError(
+          "Nessa competição, só se pode cadastrar 1 valor para os resultados"
+        );
+      }
     }
     if (!value || !unit || !competitionId || !athleteId) {
       throw new ParamsError();
@@ -49,7 +52,7 @@ export class ResultBusiness {
       await this.resultDatabase.findCompetitionByStatus(competitionId);
 
     if (isCompetitionClosed) {
-      throw new Error("Competição encerrada");
+      throw new ConflictError("Competição encerrada");
     }
 
     const isAthleteExists = await this.resultDatabase.findAthleteById(
