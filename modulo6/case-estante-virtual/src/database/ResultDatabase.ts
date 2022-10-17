@@ -72,7 +72,6 @@ export class ResultDatabase extends BaseDatabase {
     const resultDB = this.toResultDBModel(result);
 
     await BaseDatabase.connection(ResultDatabase.TABLE_RESULT).insert(resultDB);
-    console.log(resultDB);
   };
 
   public getDartsRanking = async (
